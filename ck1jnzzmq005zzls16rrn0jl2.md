@@ -61,6 +61,6 @@ window.addEventListener("popstate", function(e) {
 ``` 
 
 
-Here is code sample on codesandbox
+Here is code sample on [codesandbox](https://swhhe.csb.app/ "(target|_blank)")
 
 %[https://codesandbox.io/s/simple-router-example-swhhe?autoresize=1&fontsize=14&hidenavigation=1]
