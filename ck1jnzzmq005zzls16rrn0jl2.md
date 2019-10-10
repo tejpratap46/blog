@@ -1,4 +1,4 @@
-## Create Simple Router for you app
+## Creating a Simple Router for you web app
 
 ### Routing:
 
@@ -60,7 +60,57 @@ window.addEventListener("popstate", function(e) {
 });
 ``` 
 
-
 Here is code sample on [codesandbox](https://swhhe.csb.app/ "(target|_blank)")
 
 %[https://codesandbox.io/s/simple-router-example-swhhe?autoresize=1&fontsize=14&hidenavigation=1]
+
+Above example can easily be implemented as a `<Link/>` Component in react.
+
+```javascript
+import React, { Component } from 'react';
+
+export default class Link extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = props;
+
+        this.linkClicked = this.linkClicked.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (nextProps.href !== this.state.href) {
+            this.setState({ href: nextProps.href });
+        }
+        if (nextProps.title !== this.state.title) {
+            this.setState({ title: nextProps.title });
+        }
+    }
+
+    linkClicked(event) {
+        if (!this.state.href || this.state.href.length <= 0) {
+            event.preventDefault();
+            return false;
+        }
+        if (typeof window != 'undefined') {
+            event.preventDefault();
+            history.pushState(this.state.title, this.state.title, this.state.href);
+            window.title = this.state.title;
+            history.pushState([], this.state.href, this.state.href);
+            // Here we are replacing current page html using new page html
+            document.open("text/html");
+            document.write(xhr.responseText);
+            document.close();
+        }
+    }
+
+    render() {
+        return (
+            <a href={this.state.href} title={this.state.title} style={this.state.style} className={this.state.className} onClick={this.linkClicked}>
+                {this.props.children}
+            </a>
+        );
+    }
+}
+``` 
