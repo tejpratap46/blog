@@ -28,9 +28,7 @@ xhr.onreadystatechange = function() {
   if (xhr.readyState === XMLHttpRequest.DONE) {
     history.pushState([], href, href);
     // Here we are replacing current page html using new page html
-    document.open("text/html");
-    document.write(xhr.responseText);
-    document.close();
+    document.getElementById("app").innerHTML = xhr.responseText;
   }
 };
 xhr.open("GET", href, true);
@@ -50,9 +48,7 @@ window.addEventListener("popstate", function(e) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      document.open("text/html");
-      document.write(xhr.responseText);
-      document.close();
+      document.getElementById("app").innerHTML = xhr.responseText;
     }
   };
   xhr.open("GET", window.location.pathname, true);
@@ -99,9 +95,7 @@ export default class Link extends Component {
             window.title = this.state.title;
             history.pushState([], this.state.href, this.state.href);
             // Here we are replacing current page html using new page html
-            document.open("text/html");
-            document.write(xhr.responseText);
-            document.close();
+            // Set new state for your component here
         }
     }
 
