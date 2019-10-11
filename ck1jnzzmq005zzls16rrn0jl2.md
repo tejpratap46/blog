@@ -58,7 +58,7 @@ window.addEventListener("popstate", function(e) {
 
 Here is code sample on [codesandbox](https://swhhe.csb.app/ "(target|_blank)")
 
-%[https://codesandbox.io/s/simple-router-example-swhhe?autoresize=1&fontsize=14&hidenavigation=1]
+%[https://codesandbox.io/embed/simple-router-example-swhhe?fontsize=14]
 
 Above example can easily be implemented as a `<Link/>` Component in react.
 
