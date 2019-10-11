@@ -4,7 +4,7 @@
 
 > Routing is the process of selecting a path for traffic in a network or between or across multiple networks.
 
-Im pretty sure that you all know what Router is and what is does. But, how to make one?
+Im pretty sure that you all know what Router is and what it does. But, how to make one?
 
 It's 4 basic steps:
 
