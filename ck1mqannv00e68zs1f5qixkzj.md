@@ -10,14 +10,14 @@ At its basic Observer pattern lets you *subscribe* to changes in *subject* with 
 First we will focus on `Subscribers` and `Events`:
 
 ### Subscriber:
-Object has a property named `subscribers` to manage subscribers who want to listen to changes in our object.
+Object has a property named `subscribers` to manage subscribers who want to listen to changes in our `subject`.
 ```javascript
 let subscribers= []
 ``` 
 When a subscriber arrives, object adds it to `subscribers` and when a subscriber wants to unsubscribe, subject should remove subscriber from his `subscribers`
 
 ### Event:
-When data of subject is changed or when subject wants to inform changes to its subscribers it triggers an event. When an event is triggered, it is duty of a subject to inform every subscriber about the event. To do that we just have to iterate over all subscribers and execute their callbacks.
+When data of `subject` is changed or when `subject` wants to inform changes to its subscribers it triggers an event. When an event is triggered, it is duty of a subject to inform every subscriber about the event. To do that we just have to iterate over all subscribers and execute their callbacks.
 
 ```javascript
 this.subscribers.forEach(function(fn) {
