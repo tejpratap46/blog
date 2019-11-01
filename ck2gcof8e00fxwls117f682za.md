@@ -24,6 +24,7 @@ this.events = {};
 
 And if you are using ES6 classes, we have to declare this class as singleton, to do that we simply create a global variable and check if variable is initialised or not.
 ```javascript
+let eventManagerInstance = null;
 export default class EventManager {
   constructor() {
     if (!eventManagerInstance) {
