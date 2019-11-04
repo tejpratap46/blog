@@ -1,4 +1,4 @@
-## RxJS at its basic (Observer Pattern In JS)
+## Observer Pattern In JS (RxJS at its basic)
 
 ## ReactiveX or Reactive Extensions
  [RxJS](https://github.com/ReactiveX/rxjs)  is javascript implementation of Reactive Extension, it allows you to use  [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)  in your web app.
