@@ -6,7 +6,7 @@ As i was looking for a library to create PDF natively on Android but couldn't fo
 
 Some time ago, i had a use case where i needed to create PDF on device and unfortunately no free to use library was available at that time which can create PDF's on user's device.
 
-So, i digged into Android's  [Printing custom documents](https://developer.android.com/training/printing/custom-docs.html) where i come across  [PdfDocument](https://developer.android.com/reference/android/graphics/pdf/PdfDocument) which can generate PDF from `View`.
+So, i digged into Android's  [Printing custom documents](https://developer.android.com/training/printing/custom-docs.html) where i came across  [PdfDocument](https://developer.android.com/reference/android/graphics/pdf/PdfDocument) which can generate PDF from `View`.
 
 Here is how it is done:
 
