@@ -34,6 +34,8 @@ textView1.post(new Runnable() {
 
 In  [Next Part](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-part-3-ck9eawv4u05edcss1ftdwo5po)  we will generate preview of any Pdf File using `PdfRenderer`
 
+***
+
 To make your work easier i have created a Library to generate dynamic PDF using above methods [View on Github](https://github.com/tejpratap46/PDFCreatorAndroid)
 
  [![Simple library to generate and view PDF in Android.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1587719632043/mXw6_IETk.png)](https://github.com/tejpratap46/PDFCreatorAndroid) 
