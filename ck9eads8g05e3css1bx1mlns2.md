@@ -32,6 +32,8 @@ textView1.post(new Runnable() {
 - When 842px height is reached, again create new LinearLayout of size **595x842px** which will be Second Page in the Pdf and so on.
 - After you have create List of `LineatLayout`s as Pdf Pages, we simply have to  [use methods](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-ck9dz0vdg05agcxs14l1ix0rg)  in previous part to generate Pdf.
 
+In  [Next Part](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-part-3-ck9eawv4u05edcss1ftdwo5po)  we will generate preview of any Pdf File using `PdfRenderer`
+
 To make your work easier i have created a Library to generate dynamic PDF using above methods [View on Github](https://github.com/tejpratap46/PDFCreatorAndroid)
 
  [![Simple library to generate and view PDF in Android.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1587719632043/mXw6_IETk.png)](https://github.com/tejpratap46/PDFCreatorAndroid) 
