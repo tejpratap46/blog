@@ -78,7 +78,7 @@ Steps:
 5. In your `onCreate()`, get reference of all `LinearLayout` and create PDF (using step 4) with each layout as one page.
 6. Done.
 
-P.S. in next chapter we will create more advanced PDF and dynamically insert data and create multi page PDF
+P.S. in  [next chapter](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-part-2-ck9eads8g05e3css1bx1mlns2)  we will create more advanced PDF and dynamically insert data and create multi page PDF
 
 To make your work easier i have created a Library to generate dynamic PDF using above methods [View on Github](https://github.com/tejpratap46/PDFCreatorAndroid)
 
