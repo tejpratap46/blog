@@ -2,7 +2,7 @@
 
 In  [last part](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-part-2-ck9eads8g05e3css1bx1mlns2)  we successfully created a complex Pdf with dynamic data.
 
-After we create Pdf we should be able to show contents of Pdf to User, to do that we can use `PdfRenderer` class and get bitmap of every page inside Pdf.
+After we create a Pdf, we should be able to show contents of Pdf to User, to do that we can use `PdfRenderer` class and get bitmap of every page inside Pdf.
 
 Here is a simple function you can use to get Pdf pages as Bitmap
 
