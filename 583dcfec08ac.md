@@ -1,4 +1,4 @@
-## What makes your web app faster? (part 4, Progressive Enhancements)
+# What makes your web app faster? (part 4, Progressive Enhancements)
 
 # What makes your web app faster? (part 4, Browser And Progressive Enhancements)
 
