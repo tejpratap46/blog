@@ -1,4 +1,4 @@
-## Android: Create PDF without any library [Part 2]
+# Android: Create PDF without any library [Part 2]
 
 In  [last part](https://blog.tejpratapsingh.com/android-create-pdf-without-any-library-ck9dz0vdg05agcxs14l1ix0rg)  we created a static PDF in Android.
 
