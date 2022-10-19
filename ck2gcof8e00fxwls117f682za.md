@@ -1,4 +1,4 @@
-## Create your own Event Emitter in JS
+# Create your own Event Emitter in JS
 
 In my  [previous post](https://blog.tejpratapsingh.com/rxjs-at-its-basic-ck1mqannv00e68zs1f5qixkzj), i wrote about how we can design you app using Observer Pattern.
 
