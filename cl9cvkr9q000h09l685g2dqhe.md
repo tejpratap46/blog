@@ -2,7 +2,7 @@
 
 ### Why we need Powermock?
 
-Although Mockito is most popular Mocking Library for Java Developers, But to There are certain cases where Simple Mockito does not work. For Example, you your codebase uses any Singleton, you cannot mock them with Simple Mockito.
+Although Mockito is most popular Mocking Library for Java Developers, But there are certain cases where Simple Mockito does not work. For Example, if your codebase uses any Singleton, you cannot mock them with Simple Mockito.
 
 There are many other use cases, such as:
 1. Mock Static Methods
