@@ -1,29 +1,48 @@
-# Powermock CheatSheet: Tldr and Tips
+---
+title: "Powermock CheatSheet: Tldr and Tips"
+datePublished: Mon Oct 17 2022 14:31:57 GMT+0000 (Coordinated Universal Time)
+cuid: cl9cvkr9q000h09l685g2dqhe
+slug: powermock-cheatsheet-tldr-and-tips
+cover: https://cdn.hashnode.com/res/hashnode/image/unsplash/7lIrDouiacw/upload/v1666013124918/4jZhZ7cYF.jpeg
+tags: java, android, testing, mockito, powermockito
+
+---
 
 ### Why we need Powermock?
 
 Although Mockito is most popular Mocking Library for Java Developers, But there are certain cases where Simple Mockito does not work. For Example, if your codebase uses any Singleton, you cannot mock them with Simple Mockito.
 
 There are many other use cases, such as:
+
 1. Mock Static Methods
+    
 2. Mock Final Classes and Methods
+    
 3. Inject mock for object creation with `whenNew()`
+    
 4. `suppress()`, `stub()` or `replace()` any method of a Class.
+    
 5. Suppress static initialisation.
+    
 6. Invoke private methods.
+    
 7. Inject field with `Whitebox`
+    
 
+### 1\. PowerMockRunner
 
-### 1. PowerMockRunner
 You must annotate each class you test with `PowerMockRunner`
+
 ```Java
 @RunWith(PowerMockRunner.class)
 public class ClassToTest {
 }
 ```
 
-### 2. PrepareForTest
+### 2\. PrepareForTest
+
 Each class you add in `@PrepareForTest` will generate an different bytecode that can be manipulated by PowerMock.
+
 ```Java
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({
@@ -34,12 +53,15 @@ Each class you add in `@PrepareForTest` will generate an different bytecode that
 public class ClassToTest {
 }
 ```
+
 PreparingForTest unlocks class for a wide variety of things such as mocking final classes, classes with final, private, static or native methods that should be mocked and also classes that should be return a mock object upon instantiation.
 
-You can read more about what `@PrepareForTest` unlocks from [here](Link)
+You can read more about what `@PrepareForTest` unlocks from [here](https://blog.tejpratapsingh.com/powermock-understanding-preparefortest)
 
-### 3. SuppressStaticInitializationFor
+### 3\. SuppressStaticInitializationFor
+
 If you are working with classes which have static initializers such as:
+
 ```java
 package com.example;
 
@@ -47,9 +69,11 @@ public class ClassWithStaticInitializer {
         private static Handler mHandler = new Handler();
 }
 ```
+
 As `mHandler` belongs to `ClassWithStaticInitializer.class` not instance of `ClassWithStaticInitializer`, JVM will initialize this `mHandler` as soon as execution starts, thus we will not get a chance to mock it with `whenNew()`. In this case, we can suppress its initialization and later set its value with `Whitebox`.
 
 Here is an example to suppress `mHandler` in `ClassWithStaticInitializer.class`:
+
 ```Java
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor({
@@ -64,9 +88,11 @@ public class ClassWithStaticInitializerTest {
         }
 }
 ```
+
 > **tip:** if you see any error with StackTrace containing similar looking line `com.examlpe.ExampleClass.<clinit>`. It means there is an static initializer, just add `com.examlpe.ExampleClass` in your `SuppressStaticInitializationFor` annotation.
 
-### 4. PowerMockito.suppress()
+### 4\. PowerMockito.suppress()
+
 `suppress()` is one of the most powerful API's provided by PowerMock.
 
 With `suppress()` you can manipulate bytecode to skip executing any method or constructor.
@@ -85,7 +111,9 @@ public class ExampleClass extends CustomLibClass {
       }
 }
 ```
+
 Here, our source class extends `CustomLibClass` which we do not need to test. But creating a object of `ExampleClass` will also call constructor of `CustomLibClass`. This can be avoided if we tell Powermock to suppress constructor of `CustomLibClass`.
+
 ```Java
 // Test of Example Source Class
 @RunWith(PowerMockRunner.class)
@@ -120,9 +148,11 @@ public class ExampleClassTest {
 	}
 }
 ```
-> ***Note: *** keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of suppress constructor, we need to add `ExampleClass.class` in `@PrepareForTest`.
 
-### 5. PowerMockito.stub()
+> \*\*\*Note: \*\*\* keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of suppress constructor, we need to add `ExampleClass.class` in `@PrepareForTest`.
+
+### 5\. PowerMockito.stub()
+
 `suppress()` works best for `void` methods or constructors, but what if need to return something. For that we have `stub()`.
 
 ```Java
@@ -133,8 +163,8 @@ public class ExampleClass extends CustomLibClass {
 		return valueFromSuper * 2;
 	}
 }
+```
 
-``` 
 Here, we have a method with that return something, and to test our method we need get a fixed value from `CustomLibClass.someMethodThatOnlyWorksOnRumtime()`. To achive that, we can use `stub()`.
 
 ```Java
@@ -166,9 +196,11 @@ public class ExampleClassTest {
 	}
 }
 ```
-> ***Note: *** keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of stub method, we need to add `ExampleClass.class` in `@PrepareForTest`.
 
-### 5. PowerMockito.replace()
+> \*\*\*Note: \*\*\* keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of stub method, we need to add `ExampleClass.class` in `@PrepareForTest`.
+
+### 5\. PowerMockito.replace()
+
 `stub()` works best when we don't care about the parameters and want same result irrespective of parameter passed.
 
 With `replace()` we can go one step ahead of `stub()`, depending upon the supplied parameters, we can return different results. Let's see another similar example:
@@ -231,14 +263,17 @@ public class ExampleClassTest {
 	}
 }
 ```
-> ***Note: *** keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of replace method, we need to add `ExampleClass.class` in `@PrepareForTest`.
 
-### 6. PowerMockito.whenNew()
-There are some cases where source code directly create a new instance of object without any injection mechanism. JVM will create an instance with actual class with actual methods. For these cases, we can use `PowerMockito.whenNew()` method to 
+> \*\*\*Note: \*\*\* keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of replace method, we need to add `ExampleClass.class` in `@PrepareForTest`.
+
+### 6\. PowerMockito.whenNew()
+
+There are some cases where source code directly create a new instance of object without any injection mechanism. JVM will create an instance with actual class with actual methods. For these cases, we can use `PowerMockito.whenNew()` method to
 
 Similar to Mockito's `when()` statement, we can tell PowerMock to inject our mock instead of creating new instance of real object.
 
 Here is an example:
+
 ```Java
 // Example Source Class
 public class ExampleClass {
@@ -249,7 +284,9 @@ public class ExampleClass {
 	}
 }
 ```
+
 In above example, CustomClass instance is created without any mechanism to inject it, lets see how can we tell PowerMockito to inject our mock.
+
 ```Java
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({
@@ -282,10 +319,11 @@ public class ExampleClassTest {
 	}
 }
 ```
-> ***Note: *** keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of whenNew() method, we need to add `ExampleClass.class` in `@PrepareForTest`.
->***Note*** Keep in mind, whenNew() will not work when new instance was created inside a nested scope.
 
-### 7. Whitebox.invokeMethod()
+> \*\*\*Note: \*\*\* keep in mind, if you need to manipulate behavior (byte code) of any class, as we are doing in case of whenNew() method, we need to add `ExampleClass.class` in `@PrepareForTest`. ***Note*** Keep in mind, whenNew() will not work when new instance was created inside a nested scope.
+
+### 7\. Whitebox.invokeMethod()
+
 Used to call an private method, just a wrapper on Java Reflection API's
 
 ```Java
@@ -298,7 +336,9 @@ public class ExampleClass {
 	}
 }
 ```
+
 We can use `Whitebox.invokeMethod()` to execute that method, here an example:
+
 ```Java
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({
@@ -331,21 +371,27 @@ public class ExampleClassTest {
 	}
 }
 ```
-> ***Note: *** you should not call `invokeMethod()` unnecessarily, try to follow code execution flow to get to any private method.
 
-### 8. Whitebox.setInternalState()
+> \*\*\*Note: \*\*\* you should not call `invokeMethod()` unnecessarily, try to follow code execution flow to get to any private method.
+
+### 8\. Whitebox.setInternalState()
+
 PowerMockito allows you to inject value to globally declared member fields, this is also a wrapper around Java Reflection API's.
+
 ```Java
 Whitebox.setInternalState(classUnderTest, "mCustomClassObject", (CustomClass) null);
 ```
-> ***Note: *** You should not set values left and wright with `setInternalState()` method, this should only be used when there is some if condition that is always `true` and you need to test else condition. for e.x. a null check when that object cannot be null at that time.
 
-### 8. Whitebox.getInternalState()
+> \*\*\*Note: \*\*\* You should not set values left and wright with `setInternalState()` method, this should only be used when there is some if condition that is always `true` and you need to test else condition. for e.x. a null check when that object cannot be null at that time.
+
+### 8\. Whitebox.getInternalState()
+
 Similar to `setInternalState()` you can get value of any global field at my time with `getInternalState()` method.
 
 This method is really useful to test any void methods, we can get any state change caused by that void method and write our assertion on that.
 
 for example:
+
 ```Java
 // Example Source Class
 public class ExampleClass {
@@ -358,9 +404,11 @@ public class ExampleClass {
 	}
 }
 ```
+
 With method's like `clear()` that return void but change state of class, we can get value of `mHeight` and check if it was unset or not.
 
 Here is how we would achieve that:
+
 ```Java
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({
