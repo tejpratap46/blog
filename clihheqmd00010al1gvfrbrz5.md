@@ -3,6 +3,7 @@ title: "AIDL : RPC, The Android way"
 datePublished: Sun Jun 04 2023 13:51:34 GMT+0000 (Coordinated Universal Time)
 cuid: clihheqmd00010al1gvfrbrz5
 slug: aidl-rpc-the-android-way
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1685887032744/adbfd0dc-1df0-4716-960a-552915105d11.avif
 tags: android, rpc, rpc-framework, aidl
 
 ---
