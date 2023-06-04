@@ -62,8 +62,7 @@ Steps:
     }
     ```
     
-
-1. Expose your stub implementation with a service binder:
+4. Expose your stub implementation with a service binder:
     
     ```kotlin
     class CalculatorService : Service() {
@@ -123,3 +122,5 @@ Steps:
 ## Limitations:
 
 There is one BIG gotcha with AIDL services, which is when the system is in doze mode, your service app might not start to respond to requests.
+
+%[https://github.com/tejpratap46/AIDL-Example]
