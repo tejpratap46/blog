@@ -123,4 +123,8 @@ Steps:
 
 There is one BIG gotcha with AIDL services, which is when the system is in doze mode, your service app might not start to respond to requests.
 
+---
+
+Here is an example application using AIDL in real life 😎
+
 %[https://github.com/tejpratap46/AIDL-Example]
