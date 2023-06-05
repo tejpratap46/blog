@@ -19,7 +19,7 @@ Aidl consists of 3 parts:
 3. Server application
     
 
-### Creating AIDL file:
+### Creating AIDL file
 
 1. Enable build feature in your `build.gradle`.
     
@@ -75,7 +75,7 @@ Steps:
 
 Now your service is ready to be consumed by your clients, now let's create a client application.
 
-### Create AIDL client
+### Create an AIDL client
 
 An AIDL client is an app that binds to an AIDL service, calls API, shows response inside its own views.
 
@@ -119,7 +119,7 @@ Steps:
     ```
     
 
-## Limitations:
+## Limitations
 
 There is one BIG gotcha with AIDL services, which is when the system is in doze mode, your service app might not start to respond to requests.
 
