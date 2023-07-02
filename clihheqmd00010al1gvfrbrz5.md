@@ -44,7 +44,7 @@ Aidl consists of 3 parts:
 
 ### Create an AIDL server
 
-An AIDL server is an app that does the actual work and sends back the result to requesting clients. One service can connects with multiple clients via Binders.
+An AIDL server is an app that does the actual work and sends back the result to requesting clients. One service can connect with multiple clients via Binders.
 
 Steps:
 
@@ -77,7 +77,7 @@ Now your service is ready to be consumed by your clients, now let's create a cli
 
 ### Create an AIDL client
 
-An AIDL client is an app that binds to an AIDL service, calls API, shows response inside its own views.
+An AIDL client is an app that binds to an AIDL service, calls API, and shows a response inside its views.
 
 Steps:
 
